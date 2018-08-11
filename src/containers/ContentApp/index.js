@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import LoadData from '../../components/loadDataComponent';
+import ChartsMenu from '../../components/ChartsMenu';
+
+import BarChartData from './ChartsContainers/BarChartContainer';
+import PieChartData from './ChartsContainers/PieChartContainer';
+import LineChartData from './ChartsContainers/LineChartContainer';
+import TableChartData from './ChartsContainers/TableChartContainer';
+
 import PivotFunction from './Pivot/PivotFunction';
 import * as DataActions from '../../actions/dataActions';
 
@@ -30,11 +38,57 @@ class ContentApp extends Component {
     }
 
     render(){
+
+        const renderMenu = ({match}) => {
+            return(
+                <div>
+                    <ChartsMenu/>
+                </div>
+            );
+        }
+
+        const renderBarChart = ({match}) => {
+            return(
+                <div>
+                    <BarChartData />
+                </div>
+            );
+        }
+
+        const renderPieChart = ({match}) => {
+            return(
+                <div>
+                    <PieChartData />
+                </div>
+            );
+        }
+
+        const renderLineChart = ({match}) => {
+            return(
+                <div>
+                    <LineChartData />
+                </div>
+            );
+        }
+
+        const renderTableData = ({match}) => {
+            return(
+                <div>
+                    <TableChartData />
+                </div>
+            );
+        }
+
         return(
-            <Container>
+            <Container className="mw-100 p-3">
                 <Row className="mt-4">
                     {this.renderPivotFunction()}
                 </Row>
+                <Route exact path="/index" component={renderMenu} />
+                <Route exact path='/GraphBar' component={renderBarChart} />
+                <Route exact path='/GraphPie' component={renderPieChart} />
+                <Route exact path='/GraphLine' component={renderLineChart} />
+                <Route exact path='/GraphTable' component={renderTableData} />
             </Container>
         );
     }
@@ -52,6 +106,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-ContentApp = connect(mapStateToProps, mapDispatchToProps)(ContentApp);
+ContentApp = withRouter(connect(mapStateToProps, mapDispatchToProps)(ContentApp));
 
 export default ContentApp;

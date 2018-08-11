@@ -6,11 +6,6 @@ import {
   CardTitle, CardText, CardHeader
 } from 'reactstrap';
 
-import {
-    Dropdown, DropdownToggle,
-    DropdownMenu, DropdownItem
-} from 'reactstrap';
-
 import './PivotFunction.css';
 import * as SelectedDataActions from '../../../actions/selectedDataActions';
 import {filterData} from './FilterOptions'

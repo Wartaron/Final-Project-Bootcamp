@@ -3,6 +3,7 @@ import './App.css';
 import HeaderApp from '../../components/HeaderApp';
 import ContentApp from '../ContentApp/index';
 import { connect } from 'react-redux';
+import {withRouter } from 'react-router-dom';
 
 class App extends Component {
 
@@ -25,6 +26,6 @@ const mapStateToProps = state => {
     }
 }
 
-App = connect(mapStateToProps, null)(App);
+App = withRouter(connect(mapStateToProps, null)(App));
 
 export default App;
