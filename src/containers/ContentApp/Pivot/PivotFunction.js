@@ -13,35 +13,33 @@ import {
 
 import './PivotFunction.css';
 import * as SelectedDataActions from '../../../actions/selectedDataActions';
+import {filterData} from './FilterOptions'
 
 class PivotFunction extends Component {
-
-    constructor(){
-        super();
-
-        this.state = {
-            fact: '',
-            market: '',
-            category: ''
-        }
-    }
 
     onPivotChange(e){
         e.preventDefault();
 
         const {id, value} = e.target;
 
-        this.setState(prevState =>   ({
-            ...prevState,
-            [id]: value
-        }));
-        this.triggerActionsInProps();
+        this.triggerActionsInProps(id, value);
+
     }
 
-    triggerActionsInProps(){
-        this.props.SelectedDataActions.setFactSelected(this.state.fact);
-        this.props.SelectedDataActions.setCategorySelected(this.state.category);
-        this.props.SelectedDataActions.setMarketSelected(this.state.market);
+    triggerActionsInProps(id, value){
+        switch (id) {
+            case 'fact':
+                this.props.SelectedDataActions.setFactSelected(value);
+                break;
+            case 'market':
+                this.props.SelectedDataActions.setMarketSelected(value);
+                break;
+            case 'category':
+                this.props.SelectedDataActions.setCategorySelected(value);
+                break;
+            default:
+
+        }
 
     }
 
@@ -49,12 +47,42 @@ class PivotFunction extends Component {
         return(
             <CardFooter className="text-left">
                 <CardText>
-                    Fact: {this.state.fact} <br/>
-                    Market: {this.state.market}<br/>
-                    Category: {this.state.category}<br/>
+                    Fact: {this.props.selectedData.factSelected}    <br/>
+                    Market: {this.props.selectedData.marketSelected}    <br/>
+                    Category: {this.props.selectedData.categorySelected}    <br/>
                 </CardText>
             </CardFooter>
         );
+    }
+
+    getOptions(id = ''){
+        var filterOptions = [];
+        var optionsToRender = [];
+
+        switch (id) {
+            case 'fact':
+                filterOptions = filterData(this.props.data, 2);
+                break;
+
+            case 'market':
+                filterOptions = filterData(this.props.data, 0);
+                break;
+
+            case 'category':
+                filterOptions = filterData(this.props.data, 1);
+                break;
+
+            default:
+                filterOptions.push('');
+        }
+
+        optionsToRender = filterOptions.map((data, i) => {
+            return(
+                <option key={i}> {data} </option>
+            );
+        });
+
+        return optionsToRender;
     }
 
     render(){
@@ -72,24 +100,21 @@ class PivotFunction extends Component {
                             id="fact"
                             className="form-control"
                             onChange={this.onPivotChange.bind(this)}>
-                            <option></option>
-                            <option>Danilo</option>
+                            {this.getOptions('fact')}
                         </select>
                         <select
                             type="text"
                             id="market"
                             className="form-control"
                             onChange={this.onPivotChange.bind(this)}>
-                            <option></option>
-                            <option>Danilo</option>
+                            {this.getOptions('market')}
                         </select>
                         <select
                             type="text"
                             id="category"
                             className="form-control"
                             onChange={this.onPivotChange.bind(this)}>
-                            <option></option>
-                            <option>Danilo</option>
+                            {this.getOptions('category')}
                         </select>
                     </form>
                 </CardBody>
@@ -102,7 +127,12 @@ class PivotFunction extends Component {
 
 const mapStateToProps = state => {
     return {
-        selectedData: state.selectedData.selectedData
+        selectedData: {
+            factSelected: state.selectedData.selectedData.factSelected,
+            marketSelected: state.selectedData.selectedData.marketSelected,
+            categorySelected: state.selectedData.selectedData.categorySelected
+        },
+        data: state.data.data
     }
 }
 
