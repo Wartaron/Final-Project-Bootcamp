@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import App from './containers/App/App';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -17,4 +16,4 @@ class AppProvider extends Component{
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default AppProvider;
