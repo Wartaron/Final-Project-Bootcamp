@@ -1,4 +1,4 @@
-import SET_DATA from '../actionTypes/actionTypes';
+import {SET_DATA} from '../actionTypes/actionTypes';
 
 export function setData(data = []){
     return {

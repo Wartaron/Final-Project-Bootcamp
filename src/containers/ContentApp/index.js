@@ -13,16 +13,27 @@ class ContentApp extends Component {
         this.props.DataActions.setData(e);
     }
 
+    renderPivotFunction(){
+        if (this.props.charged) {
+            return (
+                <Col>
+                    <PivotFunction />
+                </Col>
+            );
+        }else {
+            return (
+                <Col>
+                    <LoadData onDataCharge={this.DataCharge.bind(this)}/>
+                </Col>
+            );
+        }
+    }
+
     render(){
         return(
             <Container>
                 <Row className="mt-4">
-                    <Col>
-                        <LoadData onDataCharge={this.DataCharge.bind(this)}/>
-                    </Col>
-                    <Col>
-                        <PivotFunction />
-                    </Col>
+                    {this.renderPivotFunction()}
                 </Row>
             </Container>
         );

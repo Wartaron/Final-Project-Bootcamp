@@ -1,10 +1,10 @@
-import SET_DEFAULT_SELECTED_DATA from '../actionTypes/actionTypes.js';
-import SET_FACT_SELECTED from '../actionTypes/actionTypes.js';
-import SET_MARKET_SELECTED from '../actionTypes/actionTypes.js';
-import SET_CATEGORY_SELECTED from '../actionTypes/actionTypes.js';
-import SET_LAST_PERIOD from '../actionTypes/actionTypes.js';
-import SELECTED_DATA_SUCCESS from '../actionTypes/actionTypes.js';
-import SELECTED_DATA_ERROR from '../actionTypes/actionTypes.js';
+import {SET_DEFAULT_SELECTED_DATA} from '../actionTypes/actionTypes.js';
+import {SET_FACT_SELECTED} from '../actionTypes/actionTypes.js';
+import {SET_MARKET_SELECTED} from '../actionTypes/actionTypes.js';
+import {SET_CATEGORY_SELECTED} from '../actionTypes/actionTypes.js';
+import {SET_LAST_PERIOD} from '../actionTypes/actionTypes.js';
+import {SELECTED_DATA_SUCCESS} from '../actionTypes/actionTypes.js';
+import {SELECTED_DATA_ERROR} from '../actionTypes/actionTypes.js';
 
 const initialState = {
     selectedData: {
@@ -27,7 +27,7 @@ const selectedDataReducer =  function(state=initialState, action){
             return {
                 ...state,
                 selectedData: {
-                    ...state.factSelected,
+                    ...state.selectedData,
                     factSelected: action.payload
                 }
             }
@@ -36,7 +36,7 @@ const selectedDataReducer =  function(state=initialState, action){
             return{
                 ...state,
                 selectedData: {
-                    ...state.marketSelected,
+                    ...state.selectedData,
                     marketSelected: action.payload
                 }
             }
@@ -45,7 +45,7 @@ const selectedDataReducer =  function(state=initialState, action){
             return{
                 ...state,
                 selectedData: {
-                    ...state.categorySelected,
+                    ...state.selectedData,
                     categorySelected: action.payload
                 }
             }
@@ -54,7 +54,7 @@ const selectedDataReducer =  function(state=initialState, action){
             return {
                 ...state,
                 selectedData: {
-                    ...state.lastPeriod,
+                    ...state.selectedData,
                     lastPeriod: action.payload
                 }
             }

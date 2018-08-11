@@ -5,6 +5,7 @@ import ContentApp from '../ContentApp/index';
 import { connect } from 'react-redux';
 
 class App extends Component {
+
     render() {
         const message = this.props.isCharged ? 'Charged Data': 'No Charged Data';
         const {isCharged} = this.props;
@@ -12,7 +13,7 @@ class App extends Component {
         return (
             <div className="App">
                 <HeaderApp message={message} charged={isCharged}/>
-                <ContentApp />
+                <ContentApp charged={isCharged}/>
             </div>
         );
     }
