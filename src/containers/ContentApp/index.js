@@ -14,11 +14,13 @@ import TableChartData from './ChartsContainers/TableChartContainer';
 
 import PivotFunction from './Pivot/PivotFunction';
 import * as DataActions from '../../actions/dataActions';
+import { setLastPeriod } from '../../actions/selectedDataActions';
 
 class ContentApp extends Component {
 
     DataCharge(e){
         this.props.DataActions.setData(e);
+        this.props.setLastPeriod(e[0][e[0].length - 1]);
     }
 
     renderPivotFunction(){
@@ -38,7 +40,6 @@ class ContentApp extends Component {
     }
 
     render(){
-
         const renderMenu = ({match}) => {
             return(
                 <div>
@@ -97,12 +98,14 @@ class ContentApp extends Component {
 const mapStateToProps = state => {
     return {
         data: state.data.data,
+        lastPeriod: state.selectedData.selectedData.lastPeriod,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        DataActions: bindActionCreators(DataActions, dispatch)
+        DataActions: bindActionCreators(DataActions, dispatch),
+        setLastPeriod: bindActionCreators(setLastPeriod, dispatch),
     }
 }
 

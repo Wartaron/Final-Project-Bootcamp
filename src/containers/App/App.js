@@ -9,11 +9,11 @@ class App extends Component {
 
     render() {
         const message = this.props.isCharged ? 'Charged Data': 'No Charged Data';
-        const {isCharged} = this.props;
+        const {isCharged, lastPeriod} = this.props;
 
         return (
             <div className="App">
-                <HeaderApp message={message} charged={isCharged}/>
+                <HeaderApp message={message} charged={isCharged} addInf={"Info to: " + lastPeriod}/>
                 <ContentApp charged={isCharged}/>
             </div>
         );
@@ -22,7 +22,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
-        isCharged: state.data.isCharged
+        isCharged: state.data.isCharged,
+        lastPeriod: state.selectedData.selectedData.lastPeriod,
     }
 }
 

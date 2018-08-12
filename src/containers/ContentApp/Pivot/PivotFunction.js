@@ -56,15 +56,15 @@ class PivotFunction extends Component {
 
         switch (id) {
             case 'fact':
-                filterOptions = filterData(this.props.data, 2);
-                break;
-
-            case 'market':
                 filterOptions = filterData(this.props.data, 0);
                 break;
 
-            case 'category':
+            case 'market':
                 filterOptions = filterData(this.props.data, 1);
+                break;
+
+            case 'category':
+                filterOptions = filterData(this.props.data, 2);
                 break;
 
             default:
