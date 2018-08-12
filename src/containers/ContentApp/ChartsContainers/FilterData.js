@@ -76,3 +76,9 @@ export function trasposeArray(a){
     }
     return t;
 }
+
+export function deleteRow(data, numRow){
+
+    data.splice(numRow,1);
+    return data;
+}

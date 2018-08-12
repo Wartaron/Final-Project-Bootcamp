@@ -5,13 +5,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {filterData, filterOnlyTheColumnsNeeded,
-        parseFloatArray, trasposeArray} from './FilterData';
+        parseFloatArray, trasposeArray, deleteRow} from './FilterData';
 
 class BarChartData extends Component {
-
-    constructor(){
-        super();
-    }
 
     verifyRenderChart(){
         if (this.props.data.length === 0) {
@@ -58,6 +54,7 @@ class BarChartData extends Component {
             marketSelected === '' ||
             categorySelected === '')
         ) {
+
             dataToGraph = filterData(
                 this.props.data, {
                     factSelected,
@@ -70,6 +67,7 @@ class BarChartData extends Component {
                 3);
 
             dataToGraph = parseFloatArray(dataToGraph);
+            dataToGraph = deleteRow(dataToGraph, 1);
             dataToGraph = trasposeArray(dataToGraph);
 
         }
