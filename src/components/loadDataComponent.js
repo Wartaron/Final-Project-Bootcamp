@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Card, CardFooter, CardBody,
+  Card, CardBody,
   CardTitle, CardText
 } from 'reactstrap';
 import CSVReader from 'react-csv-reader';
