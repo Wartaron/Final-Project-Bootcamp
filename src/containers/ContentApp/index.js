@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import LoadData from '../../components/loadDataComponent';
+import LoadData from '../../components/LoadDataComponent';
 import ChartsMenu from '../../components/ChartsMenu';
 
 import ChartData from './ChartsContainers/ChartContainer';
 
 import PivotFunction from './Pivot/PivotFunction';
-import * as DataActions from '../../actions/dataActions';
-import { setLastPeriod } from '../../actions/selectedDataActions';
+import * as DataActions from '../../actions/DataActions';
+import { setLastPeriod } from '../../actions/SelectedDataActions';
 
 class ContentApp extends Component {
 
@@ -74,20 +74,22 @@ class ContentApp extends Component {
         }
 
         return(
-            <Container className="mw-100 p-3">
-                    <Row>
-                        <Col xs="2">
-                            {this.renderPivotFunction()}
-                        </Col>
-                        <Col xs="10">
-                            <Route exact path="/index" component={renderMenu} />
-                            <Route exact path='/GraphBar' component={renderBarChart} />
-                            <Route exact path='/GraphPie' component={renderPieChart} />
-                            <Route exact path='/GraphLine' component={renderLineChart} />
-                            <Route exact path='/GraphTable' component={renderTableData} />
-                        </Col>
-                    </Row>
-            </Container>
+            <section>
+                <Container className="mw-100 p-3">
+                        <Row>
+                            <Col xs="2">
+                                {this.renderPivotFunction()}
+                            </Col>
+                            <Col xs="10">
+                                <Route exact path="/index" component={renderMenu} />
+                                <Route exact path='/GraphBar' component={renderBarChart} />
+                                <Route exact path='/GraphPie' component={renderPieChart} />
+                                <Route exact path='/GraphLine' component={renderLineChart} />
+                                <Route exact path='/GraphTable' component={renderTableData} />
+                            </Col>
+                        </Row>
+                </Container>
+            </section>
         );
     }
 }

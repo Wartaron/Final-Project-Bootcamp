@@ -1,6 +1,6 @@
-import {SET_DATA} from '../actionTypes/actionTypes.js';
-import {DATA_FILLED_SUCCESS} from '../actionTypes/actionTypes.js';
-import {DATA_FILLED_ERROR} from '../actionTypes/actionTypes.js';
+import {SET_DATA} from '../actionTypes/ActionTypes.js';
+import {DATA_FILLED_SUCCESS} from '../actionTypes/ActionTypes.js';
+import {DATA_FILLED_ERROR} from '../actionTypes/ActionTypes.js';
 
 const initialState = {
     data: [],

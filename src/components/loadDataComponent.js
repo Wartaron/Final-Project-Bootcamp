@@ -25,7 +25,8 @@ class LoadData extends Component {
                     <CardText>
                         <CSVReader
                             id="csvreader"
-                            onFileLoaded={this.readCSV}/>
+                            onFileLoaded={this.readCSV}
+                            inputId="CSVInput"/>
                     </CardText>
                 </CardBody>
             </Card>

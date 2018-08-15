@@ -1,10 +1,10 @@
-import {SET_DEFAULT_SELECTED_DATA} from '../actionTypes/actionTypes.js';
-import {SET_FACT_SELECTED} from '../actionTypes/actionTypes.js';
-import {SET_MARKET_SELECTED} from '../actionTypes/actionTypes.js';
-import {SET_CATEGORY_SELECTED} from '../actionTypes/actionTypes.js';
-import {SET_LAST_PERIOD} from '../actionTypes/actionTypes.js';
-import {SELECTED_DATA_SUCCESS} from '../actionTypes/actionTypes.js';
-import {SELECTED_DATA_ERROR} from '../actionTypes/actionTypes.js';
+import {SET_DEFAULT_SELECTED_DATA} from '../actionTypes/ActionTypes.js';
+import {SET_FACT_SELECTED} from '../actionTypes/ActionTypes.js';
+import {SET_MARKET_SELECTED} from '../actionTypes/ActionTypes.js';
+import {SET_CATEGORY_SELECTED} from '../actionTypes/ActionTypes.js';
+import {SET_LAST_PERIOD} from '../actionTypes/ActionTypes.js';
+import {SELECTED_DATA_SUCCESS} from '../actionTypes/ActionTypes.js';
+import {SELECTED_DATA_ERROR} from '../actionTypes/ActionTypes.js';
 
 const initialState = {
     selectedData: {

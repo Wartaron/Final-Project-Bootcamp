@@ -22,7 +22,7 @@ class ChartsMenu extends Component {
                         <Card>
                             <CardHeader>
                                 <CardTitle>
-                                    <Link to="/GraphBar">Bar Chart</Link>
+                                    <Link to="/GraphBar"><h3>Bar Chart</h3></Link>
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
@@ -40,7 +40,7 @@ class ChartsMenu extends Component {
                         <Card>
                             <CardHeader>
                                 <CardTitle>
-                                    <Link to="/GraphPie">Pie Chart</Link>
+                                    <Link to="/GraphPie"><h3>Pie Chart</h3></Link>
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
@@ -48,8 +48,8 @@ class ChartsMenu extends Component {
                             </CardBody>
                             <CardFooter>
                                 <CardText>
-                                    A pie chart is a visual representation of the data that the user previously
-                                    charged in a circular manner that lets you see how much weight had a category
+                                    <p>A pie chart is a visual representation of the data that the user previously
+                                    charged in a circular manner that lets you see how much weight had a category</p>
                                 </CardText>
                             </CardFooter>
                         </Card>
@@ -60,7 +60,7 @@ class ChartsMenu extends Component {
                         <Card>
                             <CardHeader>
                                 <CardTitle>
-                                    <Link to="/GraphLine">Line Chart</Link>
+                                    <Link to="/GraphLine"><h3>Line Chart</h3></Link>
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
@@ -68,8 +68,8 @@ class ChartsMenu extends Component {
                             </CardBody>
                             <CardFooter>
                                 <CardText>
-                                    A line graph is a visual representation that allows you to see how much
-                                    growth or decrease a category had during a certain period of time
+                                    <p>A line graph is a visual representation that allows you to see how much
+                                    growth or decrease a category had during a certain period of time</p>
                                 </CardText>
                             </CardFooter>
                         </Card>
@@ -78,7 +78,7 @@ class ChartsMenu extends Component {
                         <Card>
                             <CardHeader>
                                 <CardTitle>
-                                    <Link to="/GraphTable">Table Data</Link>
+                                    <Link to="/GraphTable"><h3>Table Data</h3></Link>
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
@@ -86,7 +86,7 @@ class ChartsMenu extends Component {
                             </CardBody>
                             <CardFooter>
                                 <CardText>
-                                    A data table allows you to see the absolute data of all the loaded information
+                                    <p>A data table allows you to see the absolute data of all the loaded information</p>
                                 </CardText>
                             </CardFooter>
                         </Card>
