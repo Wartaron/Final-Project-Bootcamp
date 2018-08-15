@@ -36,18 +36,20 @@ class HeaderApp extends Component {
         const {message, charged, addInf} = this.props;
 
         return(
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <header>
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 
-                <Link to="/index" className="navbar-brand text-white">App Graph</Link>
-                <div className="navbar-nav mr-2 mt-2 mt-lg-0">
-                    <Link to="/GraphBar" className="pl-2 text-white">Bar Graph</Link>
-                    <Link to="/GraphPie" className="pl-2 text-white">Pie Graph</Link>
-                    <Link to="/GraphLine" className="pl-2 text-white">Line Graph</Link>
-                    <Link to="/GraphTable" className="pl-2 text-white">Table</Link>
-                </div>
-                {this.renderMsg(message, charged)}
-                {this.renderAddInfo(addInf)}
-            </nav>
+                    <Link to="/index" className="navbar-brand text-white">App Graph</Link>
+                    <nav className="navbar-nav mr-2 mt-2 mt-lg-0">
+                        <Link to="/GraphBar" className="pl-2 text-white">Bar Graph</Link>
+                        <Link to="/GraphPie" className="pl-2 text-white">Pie Graph</Link>
+                        <Link to="/GraphLine" className="pl-2 text-white">Line Graph</Link>
+                        <Link to="/GraphTable" className="pl-2 text-white">Table</Link>
+                    </nav>
+                    {this.renderMsg(message, charged)}
+                    {this.renderAddInfo(addInf)}
+                </nav>
+            </header>
         );
     }
 }

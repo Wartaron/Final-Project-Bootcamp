@@ -42,60 +42,33 @@ class ContentApp extends Component {
         }
 
         const renderBarChart = ({match}) => {
-            var options = {
-                legend: {position: 'bottom', textStyle: {fontSize: '12'}},
-                hAxis: {title: 'Trend', titleTextStyle:{fontSize: 16, fontName: 'Calibri'}, textPosition: 'out', textStyle: {fontSize: '12'}},
-                vAxis: {title: 'Performance', titleTextStyle:{fontSize: 16, fontName: 'Calibri'} ,textPosition: 'out', textStyle: {fontSize: '12'}},
-                isStacked: true
-            }
             return(
                 <div>
-                    <ChartData chartType="ColumnChart" options={options}/>
+                    <ChartData chartType="ColumnChart"/>
                 </div>
             );
         }
 
         const renderPieChart = ({match}) => {
-
-            var options = {
-                legend: {position: 'bottom', alignment:"center", textStyle: {fontSize: '12'}},
-                pieHole: 0.4,
-                is3D: true
-            }
-
             return(
                 <div>
-                    <ChartData chartType="PieChart" options={options}/>
+                    <ChartData chartType="PieChart"/>
                 </div>
             );
         }
 
         const renderLineChart = ({match}) => {
-
-            var options = {
-                legend: {position: 'bottom', alignment:"center", textStyle: {fontSize: '12'}},
-                hAxis: {title: 'Trend', titleTextStyle:{fontSize: 16, fontName: 'Calibri'}, textPosition: 'out', textStyle: {fontSize: '12'}},
-                vAxis: {title: 'Performance', titleTextStyle:{fontSize: 16, fontName: 'Calibri'} ,textPosition: 'out', textStyle: {fontSize: '12'}},
-                curveType: 'function',
-                pointSize: 12
-            }
-
             return(
                 <div>
-                    <ChartData chartType="LineChart" options={options}/>
+                    <ChartData chartType="LineChart"/>
                 </div>
             );
         }
 
         const renderTableData = ({match}) => {
-            var options = {
-                showRowNumber: true,
-                alternatingRowStyle: true,
-
-            }
             return(
                 <div>
-                    <ChartData chartType="Table" options={options}/>
+                    <ChartData chartType="Table"/>
                 </div>
             );
         }

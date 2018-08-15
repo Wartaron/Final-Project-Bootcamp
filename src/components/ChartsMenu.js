@@ -26,12 +26,12 @@ class ChartsMenu extends Component {
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
-                                <img src={barChartImg} className="max-width-75"/>
+                                <img src={barChartImg} className="max-width-75" alt="Bar Chart"/>
                             </CardBody>
                             <CardFooter>
                                 <CardText>
-                                    A bar graph is a visual representation of the data that the user has previously loaded in a horizontal way,
-                                    which allows him to know in which iteration he had a greater growth.
+                                    <p>A bar graph is a visual representation of the data that the user has previously loaded in a horizontal way,
+                                    which allows him to know in which iteration he had a greater growth.</p>
                                 </CardText>
                             </CardFooter>
                         </Card>
@@ -44,7 +44,7 @@ class ChartsMenu extends Component {
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
-                                <img src={pieChartImg} className="max-width-75"/>
+                                <img src={pieChartImg} className="max-width-75" alt="Pie Chart"/>
                             </CardBody>
                             <CardFooter>
                                 <CardText>
@@ -64,7 +64,7 @@ class ChartsMenu extends Component {
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
-                                <img src={lineChartImg} className="max-width-75"/>
+                                <img src={lineChartImg} className="max-width-75" alt="Line Chart"/>
                             </CardBody>
                             <CardFooter>
                                 <CardText>
@@ -82,7 +82,7 @@ class ChartsMenu extends Component {
                                 </CardTitle>
                             </CardHeader>
                             <CardBody>
-                                <img src={tableDataImg} className="max-width-75"/>
+                                <img src={tableDataImg} className="max-width-75" alt="Data Table"/>
                             </CardBody>
                             <CardFooter>
                                 <CardText>

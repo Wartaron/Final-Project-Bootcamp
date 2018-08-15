@@ -6,12 +6,41 @@ import { withRouter } from 'react-router-dom';
 import {filterData, filterOnlyTheColumnsNeeded,
         parseFloatArray, trasposeArray, deleteRow} from './FilterData';
 
+import { optionsChart } from './assets/OptionsFile.json';
+import './assets/styles.css';
+
 class ChartData extends Component {
+
+    defineOptionsChart(){
+
+        var {chartType} = this.props;
+        var options = optionsChart[chartType];
+
+        var { factSelected,
+            marketSelected,
+            categorySelected
+        } = this.props.selectedData;
+
+        options = {
+            ...options,
+            title: "Market: " + marketSelected + " - Category: " + categorySelected,
+            animation: {duration: 1000, easing: 'out', startup: true}
+        }
+
+        return options;
+
+    }
 
     verifyRenderChart(){
 
-        var {chartType, options} = this.props;
-        var {factSelected, marketSelected, categorySelected} = this.props.selectedData;
+        var {chartType} = this.props;
+
+        var { factSelected,
+            marketSelected,
+            categorySelected
+        } = this.props.selectedData;
+
+        var options = this.defineOptionsChart();
 
         if (this.props.data.length === 0) {
             return (
@@ -30,13 +59,6 @@ class ChartData extends Component {
                  </div>
              );
         }else {
-
-            options = {
-                ...options,
-                title: "Market: " + marketSelected + " - Category: " + categorySelected,
-                animation: {duration: 1000, easing: 'out', startup: true}
-            }
-
             return (
                 <Chart
                   chartType={chartType}
