@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Card, CardBody,
-  CardTitle, CardText
-} from 'reactstrap';
 import CSVReader from 'react-csv-reader';
+import './css/index.css';
 
 class LoadData extends Component {
 
@@ -19,17 +16,17 @@ class LoadData extends Component {
 
     render(){
         return(
-            <Card>
-                <CardBody>
-                    <CardTitle>Please select the data</CardTitle>
-                    <CardText>
-                        <CSVReader
-                            id="csvreader"
-                            onFileLoaded={this.readCSV}
-                            inputId="CSVInput"/>
-                    </CardText>
-                </CardBody>
-            </Card>
+            <div className="card">
+                <div className="card-body">
+                    <h5 className="card-title" aria-label="Input CSV">Please select the data</h5>
+                    <label htmlFor="CSVInput" className="visuallyhidden">Upload CSV</label>
+                    <CSVReader
+                        id="csvreader"
+                        onFileLoaded={this.readCSV}
+                        inputId="CSVInput"
+                        aria-required="true"/>
+                </div>
+            </div>
         );
     }
 }

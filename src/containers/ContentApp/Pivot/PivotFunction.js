@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-  Card, CardFooter, CardBody,
-  CardTitle, CardText, CardHeader
-} from 'reactstrap';
 
 import './PivotFunction.css';
-import * as SelectedDataActions from '../../../actions/selectedDataActions';
+import * as SelectedDataActions from '../../../actions/SelectedDataActions';
 import {filterData} from './FilterOptions'
 
 class PivotFunction extends Component {
@@ -40,13 +36,11 @@ class PivotFunction extends Component {
 
     renderFooter(){
         return(
-            <CardFooter className="text-left">
-                <CardText>
-                    Fact: {this.props.selectedData.factSelected}    <br/>
-                    Market: {this.props.selectedData.marketSelected}    <br/>
-                    Category: {this.props.selectedData.categorySelected}    <br/>
-                </CardText>
-            </CardFooter>
+            <div className="text-left card-footer">
+                <p className="card-text">Fact: {this.props.selectedData.factSelected} </p>
+                <p className="card-text">Market: {this.props.selectedData.marketSelected}</p>
+                <p className="card-text">Category: {this.props.selectedData.categorySelected}</p>
+            </div>
         );
     }
 
@@ -73,7 +67,7 @@ class PivotFunction extends Component {
 
         optionsToRender = filterOptions.map((data, i) => {
             return(
-                <option key={i}> {data} </option>
+                <option key={i} > {data} </option>
             );
         });
 
@@ -82,40 +76,46 @@ class PivotFunction extends Component {
 
     render(){
         return(
-            <Card>
-                <CardHeader>
-                    <CardTitle>
+            <div className="card">
+                <div className="card-header">
+                    <h5 className="card-title" aria-label="Select Info">
                         Select your data for the next pivots
-                    </CardTitle>
-                </CardHeader>
-                <CardBody>
+                    </h5>
+                </div>
+                <div className="card-body">
                     <form className="form">
+                        <label htmlFor="fact">Facts:</label>
                         <select
                             type="text"
                             id="fact"
                             className="form-control"
+                            aria-label="Facts"
                             onChange={this.onPivotChange.bind(this)}>
                             {this.getOptions('fact')}
                         </select>
+                        <label htmlFor="market">Markets:</label>
                         <select
                             type="text"
                             id="market"
                             className="form-control"
+                            aria-label="Markets"
                             onChange={this.onPivotChange.bind(this)}>
                             {this.getOptions('market')}
                         </select>
+                        <label htmlFor="category">Categories:</label>
                         <select
                             type="text"
                             id="category"
                             className="form-control"
+                            aria-label="Categories"
                             onChange={this.onPivotChange.bind(this)}>
                             {this.getOptions('category')}
                         </select>
                     </form>
-                </CardBody>
+                </div>
                 {this.renderFooter()}
 
-            </Card>
+            </div>
         );
     }
 }

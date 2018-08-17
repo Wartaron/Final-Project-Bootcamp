@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, withRouter } from 'react-router-dom';
@@ -12,6 +11,8 @@ import ChartData from './ChartsContainers/ChartContainer';
 import PivotFunction from './Pivot/PivotFunction';
 import * as DataActions from '../../actions/DataActions';
 import { setLastPeriod } from '../../actions/SelectedDataActions';
+
+import './indexAssets/index.css';
 
 class ContentApp extends Component {
 
@@ -74,21 +75,28 @@ class ContentApp extends Component {
         }
 
         return(
-            <section>
-                <Container className="mw-100 p-3">
-                        <Row>
-                            <Col xs="2">
+            <section className="ajust-content">
+                <div className="container mw-100 p-3">
+                        <div className="row">
+                            <div className="col-2">
                                 {this.renderPivotFunction()}
-                            </Col>
-                            <Col xs="10">
+                            </div>
+                            <div className="col-10">
+                                <h1 className="text-heading">Graph App</h1>
+                                <p className="text-summary">
+                                    This App allows you to graph some information
+                                    that is stored in a <strong>CSV file</strong> with some kind of
+                                    predefined structure, please charge the CSV File and
+                                    activates one of the charts.
+                                </p>
                                 <Route exact path="/index" component={renderMenu} />
                                 <Route exact path='/GraphBar' component={renderBarChart} />
                                 <Route exact path='/GraphPie' component={renderPieChart} />
                                 <Route exact path='/GraphLine' component={renderLineChart} />
                                 <Route exact path='/GraphTable' component={renderTableData} />
-                            </Col>
-                        </Row>
-                </Container>
+                            </div>
+                        </div>
+                </div>
             </section>
         );
     }

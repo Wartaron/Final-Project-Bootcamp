@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import HeaderApp from '../../components/HeaderApp';
+import FooterApp from '../../components/FooterApp';
 import ContentApp from '../ContentApp/index';
 import { connect } from 'react-redux';
 import {withRouter } from 'react-router-dom';
@@ -15,6 +16,7 @@ class App extends Component {
             <div className="App">
                 <HeaderApp message={message} charged={isCharged} addInf={"Info to: " + lastPeriod}/>
                 <ContentApp charged={isCharged}/>
+                <FooterApp/>
             </div>
         );
     }

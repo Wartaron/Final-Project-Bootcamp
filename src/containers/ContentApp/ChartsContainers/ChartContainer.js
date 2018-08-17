@@ -42,7 +42,7 @@ class ChartData extends Component {
 
         var options = this.defineOptionsChart();
 
-        if (this.props.data.length === 0) {
+        if (!this.props.isCharged) {
             return (
                 <div class="p-3 mb-2 bg-danger text-white">
                     Please Charge the info
@@ -124,6 +124,7 @@ class ChartData extends Component {
 const mapStateToProps = state => {
     return {
         data: state.data.data,
+        isCharged: state.data.isCharged,
         selectedData: state.selectedData.selectedData,
     }
 }
